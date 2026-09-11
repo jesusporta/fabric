@@ -1,0 +1,4 @@
+relationship ce502c5d-337a-7ee8-16b2-dab97e0e81f1
+	fromColumn: facts.person_id
+	toColumn: dim_persons.person_id
+

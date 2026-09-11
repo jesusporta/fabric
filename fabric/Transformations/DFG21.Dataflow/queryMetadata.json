@@ -1,0 +1,42 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {
+    "allowModernEvaluationEngine": true
+  },
+  "name": "DFG21",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "queriesMetadata": {
+    "customers": {
+      "queryId": "6fe42478-6ac1-4611-afa8-fcc169937300",
+      "queryName": "customers"
+    },
+    "city_information": {
+      "queryId": "714f17c3-4937-4960-8c3e-462f1e6de13b",
+      "queryName": "city_information"
+    },
+    "Merge": {
+      "queryId": "d970d2eb-7cb7-46d5-8b27-98c6ea24d16f",
+      "queryName": "Merge",
+      "loadEnabled": false
+    },
+    "Merge_DataDestination": {
+      "queryId": "b4a2b6f1-8908-46bd-9483-da685d0721c1",
+      "queryName": "Merge_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "FabricSql",
+      "kind": "FabricSql",
+      "connectionId": "{\"ClusterId\":\"12ad7a26-037a-44b8-b36e-a1184ef73a5a\",\"DatasourceId\":\"9aaed08b-4ae8-4899-84e2-aaf13c1ca43a\"}"
+    },
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"12ad7a26-037a-44b8-b36e-a1184ef73a5a\",\"DatasourceId\":\"02ec11b5-2f21-499b-9d8b-231bf7d2304a\"}"
+    }
+  ]
+}

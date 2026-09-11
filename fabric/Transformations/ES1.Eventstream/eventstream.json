@@ -1,0 +1,269 @@
+{
+  "sources": [
+    {
+      "id": "3a506f51-144a-4ba5-a583-8514e670764e",
+      "name": "CE1",
+      "type": "CustomEndpoint",
+      "properties": {}
+    }
+  ],
+  "destinations": [
+    {
+      "id": "cda8a98f-9489-4f83-8ec4-a12d2570cdff",
+      "name": "Eventhouse",
+      "type": "Eventhouse",
+      "properties": {
+        "dataIngestionMode": "ProcessedIngestion",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "itemId": "3cb3a096-2074-894d-4abe-7e001419f6a4",
+        "databaseName": "EH1",
+        "tableName": "table_from_ES1",
+        "inputSerialization": {
+          "type": "Json",
+          "properties": {
+            "encoding": "UTF8"
+          }
+        }
+      },
+      "inputNodes": [
+        {
+          "name": "Filter"
+        }
+      ],
+      "inputSchemas": [
+        {
+          "name": "Filter",
+          "schema": {
+            "columns": [
+              {
+                "name": "ArrayIndex_temperature_readings",
+                "type": "BigInt",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "ArrayValue_temperature_readings",
+                "type": "Record",
+                "fields": [
+                  {
+                    "name": "sensor",
+                    "type": "Nvarchar(max)",
+                    "fields": null,
+                    "items": null
+                  },
+                  {
+                    "name": "temperature",
+                    "type": "Nvarchar(max)",
+                    "fields": null,
+                    "items": null
+                  }
+                ],
+                "items": null
+              },
+              {
+                "name": "country",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "city",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "timestamp",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "event_id",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "streams": [
+    {
+      "id": "532efc5c-516b-4661-993e-2a3152294b51",
+      "name": "ES1-stream",
+      "type": "DefaultStream",
+      "properties": {},
+      "inputNodes": [
+        {
+          "name": "CE1"
+        }
+      ]
+    }
+  ],
+  "operators": [
+    {
+      "name": "Expand",
+      "type": "Expand",
+      "inputNodes": [
+        {
+          "name": "ES1-stream"
+        }
+      ],
+      "properties": {
+        "column": {
+          "expressionType": "ColumnReference",
+          "node": null,
+          "columnName": "temperature_readings",
+          "columnPathSegments": []
+        },
+        "ignoreMissingOrEmpty": true
+      },
+      "inputSchemas": [
+        {
+          "name": "ES1-stream",
+          "schema": {
+            "columns": [
+              {
+                "name": "country",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "city",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "timestamp",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "temperature_readings",
+                "type": "Array",
+                "fields": null,
+                "items": {
+                  "name": null,
+                  "type": "Record",
+                  "fields": [
+                    {
+                      "name": "sensor",
+                      "type": "Nvarchar(max)",
+                      "fields": null,
+                      "items": null
+                    },
+                    {
+                      "name": "temperature",
+                      "type": "Nvarchar(max)",
+                      "fields": null,
+                      "items": null
+                    }
+                  ],
+                  "items": null
+                }
+              },
+              {
+                "name": "event_id",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Filter",
+      "type": "Filter",
+      "inputNodes": [
+        {
+          "name": "Expand"
+        }
+      ],
+      "properties": {
+        "conditions": [
+          {
+            "column": {
+              "expressionType": "ColumnReference",
+              "node": null,
+              "columnName": "country",
+              "columnPathSegments": []
+            },
+            "operatorType": "Equals",
+            "value": {
+              "expressionType": "Literal",
+              "dataType": "Nvarchar(max)",
+              "value": "SPAIN"
+            }
+          }
+        ]
+      },
+      "inputSchemas": [
+        {
+          "name": "Expand",
+          "schema": {
+            "columns": [
+              {
+                "name": "ArrayIndex_temperature_readings",
+                "type": "BigInt",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "ArrayValue_temperature_readings",
+                "type": "Record",
+                "fields": [
+                  {
+                    "name": "sensor",
+                    "type": "Nvarchar(max)",
+                    "fields": null,
+                    "items": null
+                  },
+                  {
+                    "name": "temperature",
+                    "type": "Nvarchar(max)",
+                    "fields": null,
+                    "items": null
+                  }
+                ],
+                "items": null
+              },
+              {
+                "name": "country",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "city",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "timestamp",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "event_id",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "compatibilityLevel": "1.1"
+}

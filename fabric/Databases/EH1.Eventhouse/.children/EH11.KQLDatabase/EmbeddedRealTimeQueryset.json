@@ -1,0 +1,40 @@
+{
+  "queryset": {
+    "version": "1.0.0",
+    "dataSources": [
+      {
+        "id": "6cd9de5a-452e-4513-848a-0221e91dde75",
+        "clusterUri": "https://trd-3899cvmeup78qy82y0.z2.kusto.fabric.microsoft.com",
+        "type": "Fabric",
+        "databaseItemId": "1419f6a4-7e00-4abe-894d-20743cb3a096"
+      }
+    ],
+    "tabs": [
+      {
+        "id": "ad11da2d-8872-44e0-b09f-2aefbc834576",
+        "content": "//***********************************************************************************************************\n// Here are two articles to help you get started with KQL:\n// KQL reference guide - https://aka.ms/KQLguide\n// SQL - KQL conversions - https://aka.ms/sqlcheatsheet\n//***********************************************************************************************************\n\n// Use \"take\" to view a sample number of records in the table and check the data.\nYOUR_TABLE_HERE\n| take 100\n\n// See how many records are in the table.\nYOUR_TABLE_HERE\n| count\n\n// This query returns the number of ingestions per hour in the given table.\nYOUR_TABLE_HERE\n| summarize IngestionCount = count() by bin(ingestion_time(), 1h)\n\n",
+        "title": "Tab",
+        "dataSourceId": "6cd9de5a-452e-4513-848a-0221e91dde75"
+      },
+      {
+        "id": "0b1258fa-b0e0-4a11-bc97-64aa1f4d5e8e",
+        "content": "// Use 'take' to view a sample number of records in the table and check the data.\ntable_from_ES1\n| take 100\n\ntable_from_ES1\n| where ArrayIndex_temperature_readings > 1\n| project city, country, concatenated = strcat(city, ' ', country)\n\ntable_from_ES1\n| join kind=leftouter table_from_ES1 on city\n| summarize count_of_indexes = count() by country\n",
+        "title": "",
+        "dataSourceId": "6cd9de5a-452e-4513-848a-0221e91dde75"
+      },
+      {
+        "id": "a5060e40-df9a-4320-b6d8-7a8b448fc512",
+        "content": "\nraw\n| order by timestamp asc \n| where todatetime(timestamp) > todatetime('2026-09-05 16:09:40')\n\nTumbling\n| order by Window_End_Time asc\n\nHopping\n| order by Window_End_Time asc\n\nSliding\n| order by Window_End_Time asc\n\nSession\n| order by Window_End_Time asc\n\nSnapshot\n| order by Window_End_Time asc",
+        "title": "",
+        "dataSourceId": "6cd9de5a-452e-4513-848a-0221e91dde75"
+      },
+      {
+        "id": "6b88a0fd-57ac-4bfc-9135-a77a58486f59",
+        "content": "// Use 'take' to view a sample number of records in the table and check the data.\n\n\ntable_from_ES1\n| take 100\n| order by ArrayIndex_temperature_readings\n ",
+        "title": "",
+        "dataSourceId": "6cd9de5a-452e-4513-848a-0221e91dde75"
+      }
+    ],
+    "querysetType": "Embedded"
+  }
+}

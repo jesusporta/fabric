@@ -1,0 +1,77 @@
+table customers
+	lineageTag: 21ebd22a-d1e1-4a91-a925-b2486445d221
+	sourceLineageTag: [staging].[customers]
+
+	column CustomerID
+		dataType: int64
+		formatString: 0
+		lineageTag: 5dddabdb-828e-4c32-8db8-945102b0e40f
+		sourceLineageTag: CustomerID
+		summarizeBy: count
+		sourceColumn: CustomerID
+
+		annotation SummarizationSetBy = Automatic
+
+	column FirstName
+		dataType: string
+		lineageTag: 63d59b1f-bd16-4ee3-87de-d10e9e312139
+		sourceLineageTag: FirstName
+		summarizeBy: none
+		sourceColumn: FirstName
+
+		annotation SummarizationSetBy = Automatic
+
+	column LastName
+		dataType: string
+		lineageTag: f1f97cc4-216c-4ed7-aecb-af3f57efa618
+		sourceLineageTag: LastName
+		summarizeBy: none
+		sourceColumn: LastName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Email
+		dataType: string
+		lineageTag: 51c4cd47-ed6c-490c-8913-75ba1ee24ceb
+		sourceLineageTag: Email
+		summarizeBy: none
+		sourceColumn: Email
+
+		annotation SummarizationSetBy = Automatic
+
+	column Age
+		dataType: int64
+		formatString: 0
+		lineageTag: 16b82d7d-c713-4787-abb3-158befea1182
+		sourceLineageTag: Age
+		summarizeBy: sum
+		sourceColumn: Age
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: ed6c7bd8-14c9-4142-b221-a5998f20ba11
+		sourceLineageTag: City
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreatedDate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: da9f059c-9da2-4a0b-9889-23d9fe40ff89
+		sourceLineageTag: CreatedDate
+		summarizeBy: none
+		sourceColumn: CreatedDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition customers = entity
+		mode: directLake
+		source
+			entityName: customers
+			schemaName: staging
+			expressionSource: 'DirectLake - LK1'
+

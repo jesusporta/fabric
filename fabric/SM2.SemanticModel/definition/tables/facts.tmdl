@@ -1,0 +1,42 @@
+table facts
+	lineageTag: abdc6d53-36c0-4555-ba0d-f20ffc9a90d0
+
+	column value
+		dataType: double
+		lineageTag: 4f4ed6cd-a73b-42d2-87b2-8402344e9c7f
+		summarizeBy: sum
+		sourceColumn: value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column id_value
+		dataType: int64
+		formatString: 0
+		lineageTag: c89b390f-6bc6-4ac5-991d-3db2d607fac4
+		summarizeBy: sum
+		sourceColumn: id_value
+
+		annotation SummarizationSetBy = Automatic
+
+	column person_id
+		dataType: int64
+		formatString: 0
+		lineageTag: a2837900-3cbb-43d5-a9d8-f8b3faad8454
+		summarizeBy: none
+		sourceColumn: person_id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition facts = m
+		mode: import
+		source =
+				let
+				  Source = Sql.Database("192.168.0.91", "JESUS"),
+				  #"Navigation 1" = Source{[Schema = "dbo", Item = "facts"]}[Data]
+				in
+				  #"Navigation 1"
+
+	annotation PBI_ResultType = Table
+

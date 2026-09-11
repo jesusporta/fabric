@@ -1,0 +1,15 @@
+[
+  {
+    "name": "users",
+    "path": "/Tables/dbo",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/dbo/users",
+        "itemId": "d8a67026-e0ba-9316-4129-66332d58dcff",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "artifactType": "SQLDbNative"
+      }
+    }
+  }
+]

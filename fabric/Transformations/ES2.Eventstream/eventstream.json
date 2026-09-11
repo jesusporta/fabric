@@ -1,0 +1,600 @@
+{
+  "sources": [
+    {
+      "id": "f530dd53-9b41-4220-8bb4-687b81807c60",
+      "name": "CustomEndpoint-Source",
+      "type": "CustomEndpoint",
+      "properties": {}
+    }
+  ],
+  "destinations": [
+    {
+      "id": "2be15e21-622c-4750-8537-082f76f4a9f1",
+      "name": "Eventhouse3",
+      "type": "Eventhouse",
+      "properties": {
+        "dataIngestionMode": "ProcessedIngestion",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "itemId": "3cb3a096-2074-894d-4abe-7e001419f6a4",
+        "databaseName": "EH11",
+        "tableName": "Session",
+        "inputSerialization": {
+          "type": "Json",
+          "properties": {
+            "encoding": "UTF8"
+          }
+        }
+      },
+      "inputNodes": [
+        {
+          "name": "Session"
+        }
+      ],
+      "inputSchemas": [
+        {
+          "name": "Session",
+          "schema": {
+            "columns": [
+              {
+                "name": "COUNT_All",
+                "type": "Float",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "Window_End_Time",
+                "type": "DateTime",
+                "fields": null,
+                "items": null
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "334ed6fe-8ea4-4cf6-bc9b-a953388b28fc",
+      "name": "Eventhouse1",
+      "type": "Eventhouse",
+      "properties": {
+        "dataIngestionMode": "ProcessedIngestion",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "itemId": "3cb3a096-2074-894d-4abe-7e001419f6a4",
+        "databaseName": "EH11",
+        "tableName": "Hopping",
+        "inputSerialization": {
+          "type": "Json",
+          "properties": {
+            "encoding": "UTF8"
+          }
+        }
+      },
+      "inputNodes": [
+        {
+          "name": "Hopping"
+        }
+      ],
+      "inputSchemas": [
+        {
+          "name": "Hopping",
+          "schema": {
+            "columns": [
+              {
+                "name": "COUNT_All",
+                "type": "Float",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "Window_End_Time",
+                "type": "DateTime",
+                "fields": null,
+                "items": null
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "3d6766c7-e3de-418d-8ef3-8bca28e312ec",
+      "name": "Eventhouse2",
+      "type": "Eventhouse",
+      "properties": {
+        "dataIngestionMode": "ProcessedIngestion",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "itemId": "3cb3a096-2074-894d-4abe-7e001419f6a4",
+        "databaseName": "EH11",
+        "tableName": "Sliding",
+        "inputSerialization": {
+          "type": "Json",
+          "properties": {
+            "encoding": "UTF8"
+          }
+        }
+      },
+      "inputNodes": [
+        {
+          "name": "Sliding"
+        }
+      ],
+      "inputSchemas": [
+        {
+          "name": "Sliding",
+          "schema": {
+            "columns": [
+              {
+                "name": "COUNT_All",
+                "type": "Float",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "Window_End_Time",
+                "type": "DateTime",
+                "fields": null,
+                "items": null
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "59b61942-a4b8-44dc-8f6a-33d9e87323cf",
+      "name": "Eventhouse5",
+      "type": "Eventhouse",
+      "properties": {
+        "dataIngestionMode": "ProcessedIngestion",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "itemId": "3cb3a096-2074-894d-4abe-7e001419f6a4",
+        "databaseName": "EH11",
+        "tableName": "raw",
+        "inputSerialization": {
+          "type": "Json",
+          "properties": {
+            "encoding": "UTF8"
+          }
+        }
+      },
+      "inputNodes": [
+        {
+          "name": "ES2-stream"
+        }
+      ],
+      "inputSchemas": [
+        {
+          "name": "ES2-stream",
+          "schema": {
+            "columns": [
+              {
+                "name": "timestamp",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "message",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "message_id",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "80abe3b4-c9f4-49f9-901b-9c641ff19325",
+      "name": "Eventhouse4",
+      "type": "Eventhouse",
+      "properties": {
+        "dataIngestionMode": "ProcessedIngestion",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "itemId": "3cb3a096-2074-894d-4abe-7e001419f6a4",
+        "databaseName": "EH11",
+        "tableName": "Snapshot",
+        "inputSerialization": {
+          "type": "Json",
+          "properties": {
+            "encoding": "UTF8"
+          }
+        }
+      },
+      "inputNodes": [
+        {
+          "name": "GroupBy"
+        }
+      ],
+      "inputSchemas": [
+        {
+          "name": "GroupBy",
+          "schema": {
+            "columns": [
+              {
+                "name": "COUNT_All",
+                "type": "Float",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "Window_End_Time",
+                "type": "DateTime",
+                "fields": null,
+                "items": null
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "982cff54-2e42-4bdd-b615-62960c7b9db7",
+      "name": "Eventhouse",
+      "type": "Eventhouse",
+      "properties": {
+        "dataIngestionMode": "ProcessedIngestion",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "itemId": "3cb3a096-2074-894d-4abe-7e001419f6a4",
+        "databaseName": "EH11",
+        "tableName": "Tumbling",
+        "inputSerialization": {
+          "type": "Json",
+          "properties": {
+            "encoding": "UTF8"
+          }
+        }
+      },
+      "inputNodes": [
+        {
+          "name": "Tumbling"
+        }
+      ],
+      "inputSchemas": [
+        {
+          "name": "Tumbling",
+          "schema": {
+            "columns": [
+              {
+                "name": "COUNT_All",
+                "type": "Float",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "Window_End_Time",
+                "type": "DateTime",
+                "fields": null,
+                "items": null
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "streams": [
+    {
+      "id": "be1c75a2-0db7-46f1-a2bf-f35ec2e2a11f",
+      "name": "ES2-stream",
+      "type": "DefaultStream",
+      "properties": {},
+      "inputNodes": [
+        {
+          "name": "CustomEndpoint-Source"
+        }
+      ]
+    }
+  ],
+  "operators": [
+    {
+      "name": "GroupBy",
+      "type": "GroupBy",
+      "inputNodes": [
+        {
+          "name": "ES2-stream"
+        }
+      ],
+      "properties": {
+        "aggregations": [
+          {
+            "aggregateFunction": "Count",
+            "arguments": [],
+            "column": {
+              "expressionType": "Wildcard"
+            },
+            "alias": "COUNT_All"
+          }
+        ],
+        "groupBy": [],
+        "window": {
+          "type": "Snapshot",
+          "properties": {}
+        }
+      },
+      "inputSchemas": [
+        {
+          "name": "ES2-stream",
+          "schema": {
+            "columns": [
+              {
+                "name": "timestamp",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "message",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "message_id",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Hopping",
+      "type": "GroupBy",
+      "inputNodes": [
+        {
+          "name": "ES2-stream"
+        }
+      ],
+      "properties": {
+        "aggregations": [
+          {
+            "aggregateFunction": "Count",
+            "arguments": [],
+            "column": {
+              "expressionType": "Wildcard"
+            },
+            "alias": "COUNT_All"
+          }
+        ],
+        "groupBy": [],
+        "window": {
+          "type": "Hopping",
+          "properties": {
+            "hopSize": {
+              "value": 5,
+              "unit": "Second"
+            },
+            "duration": {
+              "value": 10,
+              "unit": "Second"
+            },
+            "offset": {
+              "value": 0,
+              "unit": "Second"
+            }
+          }
+        }
+      },
+      "inputSchemas": [
+        {
+          "name": "ES2-stream",
+          "schema": {
+            "columns": [
+              {
+                "name": "timestamp",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "message",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "message_id",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Session",
+      "type": "GroupBy",
+      "inputNodes": [
+        {
+          "name": "ES2-stream"
+        }
+      ],
+      "properties": {
+        "aggregations": [
+          {
+            "aggregateFunction": "Count",
+            "arguments": [],
+            "column": {
+              "expressionType": "Wildcard"
+            },
+            "alias": "COUNT_All"
+          }
+        ],
+        "groupBy": [],
+        "window": {
+          "type": "Session",
+          "properties": {
+            "maxDuration": {
+              "value": 10,
+              "unit": "Second"
+            },
+            "timeout": {
+              "value": 5,
+              "unit": "Second"
+            },
+            "partitionBy": null
+          }
+        }
+      },
+      "inputSchemas": [
+        {
+          "name": "ES2-stream",
+          "schema": {
+            "columns": [
+              {
+                "name": "timestamp",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "message",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "message_id",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Sliding",
+      "type": "GroupBy",
+      "inputNodes": [
+        {
+          "name": "ES2-stream"
+        }
+      ],
+      "properties": {
+        "aggregations": [
+          {
+            "aggregateFunction": "Count",
+            "arguments": [],
+            "column": {
+              "expressionType": "Wildcard"
+            },
+            "alias": "COUNT_All"
+          }
+        ],
+        "groupBy": [],
+        "window": {
+          "type": "Sliding",
+          "properties": {
+            "duration": {
+              "value": 5,
+              "unit": "Second"
+            }
+          }
+        }
+      },
+      "inputSchemas": [
+        {
+          "name": "ES2-stream",
+          "schema": {
+            "columns": [
+              {
+                "name": "timestamp",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "message",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "message_id",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Tumbling",
+      "type": "GroupBy",
+      "inputNodes": [
+        {
+          "name": "ES2-stream"
+        }
+      ],
+      "properties": {
+        "aggregations": [
+          {
+            "aggregateFunction": "Count",
+            "arguments": [],
+            "column": {
+              "expressionType": "Wildcard"
+            },
+            "alias": "COUNT_All"
+          }
+        ],
+        "groupBy": [],
+        "window": {
+          "type": "Tumbling",
+          "properties": {
+            "duration": {
+              "value": 10,
+              "unit": "Second"
+            },
+            "offset": {
+              "value": 0,
+              "unit": "Second"
+            }
+          }
+        }
+      },
+      "inputSchemas": [
+        {
+          "name": "ES2-stream",
+          "schema": {
+            "columns": [
+              {
+                "name": "timestamp",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "message",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "message_id",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "compatibilityLevel": "1.1"
+}

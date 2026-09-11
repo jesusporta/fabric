@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "NT4_streaming"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "1949670b-2e60-8493-4029-b7e2b4629a44"
+  }
+}

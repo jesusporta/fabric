@@ -1,0 +1,31 @@
+table dim_persons
+	lineageTag: 787bf86f-ff68-453e-8763-e33262060aa5
+
+	column person_id
+		dataType: int64
+		formatString: 0
+		lineageTag: bc7c044f-de5b-4d4c-99fd-e378927daec6
+		summarizeBy: none
+		sourceColumn: person_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column name
+		dataType: string
+		lineageTag: f19c2a68-db17-4a80-8323-2c2e86bdc446
+		summarizeBy: none
+		sourceColumn: name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_persons = m
+		mode: import
+		source =
+				let
+				  Source = Sql.Database("192.168.0.91", "JESUS"),
+				  #"Navigation 1" = Source{[Schema = "dbo", Item = "dim_persons"]}[Data]
+				in
+				  #"Navigation 1"
+
+	annotation PBI_ResultType = Table
+

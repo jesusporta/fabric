@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "MirroredDatabase",
+    "displayName": "JESUS"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "9db21005-dbcf-963d-4e38-c14c45442bdd"
+  }
+}

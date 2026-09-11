@@ -1,0 +1,25 @@
+table Query1
+	lineageTag: c03c9ab6-7aad-4bf1-9a06-9ce3193f114b
+
+	column CurrentTimestamp
+		dataType: string
+		lineageTag: 6e8abb0c-826b-43e1-9820-ebf3ddbedead
+		summarizeBy: none
+		sourceColumn: CurrentTimestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Query1 = m
+		mode: import
+		source =
+				let
+				    CurrentTimestamp = DateTime.LocalNow(),
+				    Source = #table(
+				        {"CurrentTimestamp"},
+				        {{CurrentTimestamp}}
+				    )
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+

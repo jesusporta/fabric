@@ -1,0 +1,29 @@
+{
+  "properties": {
+    "source": {
+      "type": "MSSQL",
+      "typeProperties": {
+        "connection": "92557792-3c8c-4a6a-8a78-4f90fa501d22"
+      }
+    },
+    "target": {
+      "type": "MountedRelationalDatabase",
+      "typeProperties": {
+        "defaultSchema": "dbo",
+        "format": "Delta",
+        "retentionInDays": 1,
+        "enableDeltaChangeDataFeed": false
+      }
+    },
+    "mountedTables": [
+      {
+        "source": {
+          "typeProperties": {
+            "schemaName": "dbo",
+            "tableName": "facts"
+          }
+        }
+      }
+    ]
+  }
+}

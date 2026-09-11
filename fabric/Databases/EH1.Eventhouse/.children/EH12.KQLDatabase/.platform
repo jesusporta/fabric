@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "KQLDatabase",
+    "displayName": "EH12",
+    "description": "EH12"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "67178e7a-7102-aa40-4388-ad7313a1a6bc"
+  }
+}

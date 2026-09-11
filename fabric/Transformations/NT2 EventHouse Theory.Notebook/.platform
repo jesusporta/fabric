@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "NT2 EventHouse Theory"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "bdf8ff7e-f690-9bf1-46ac-3d375c7fc6a3"
+  }
+}
