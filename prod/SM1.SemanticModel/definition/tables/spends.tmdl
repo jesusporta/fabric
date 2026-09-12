@@ -1,0 +1,40 @@
+table spends
+	lineageTag: a0e67fe4-404a-4310-b597-54f9d8950b53
+	sourceLineageTag: [dbo].[spends]
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: 1d2c7953-7dd7-4dca-b34d-9e295ac8c809
+		sourceLineageTag: id
+		summarizeBy: sum
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column name
+		dataType: string
+		lineageTag: 562fdd4b-6bc3-421a-b6d0-8845996a7ca1
+		sourceLineageTag: name
+		summarizeBy: none
+		sourceColumn: name
+
+		annotation SummarizationSetBy = Automatic
+
+	column spends
+		dataType: int64
+		formatString: 0
+		lineageTag: b8168b06-da0d-4b96-9cb2-5504713ffc5e
+		sourceLineageTag: spends
+		summarizeBy: sum
+		sourceColumn: spends
+
+		annotation SummarizationSetBy = Automatic
+
+	partition spends = entity
+		mode: directLake
+		source
+			entityName: spends
+			schemaName: dbo
+			expressionSource: 'DirectLake - DW1'
+
