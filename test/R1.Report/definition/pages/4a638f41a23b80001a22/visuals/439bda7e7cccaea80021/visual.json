@@ -1,0 +1,94 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "439bda7e7cccaea80021",
+  "position": {
+    "x": 428.22902796271637,
+    "y": 233.92809587217042,
+    "z": 0,
+    "height": 280,
+    "width": 280,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "spends"
+                    }
+                  },
+                  "Property": "name"
+                }
+              },
+              "queryRef": "spends.name",
+              "nativeQueryRef": "name"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "spends"
+                        }
+                      },
+                      "Property": "spends"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(spends.spends)",
+              "nativeQueryRef": "Sum of spends"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "0b47488019000ad5030e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "spends"
+              }
+            },
+            "Property": "name"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a8eacf5571d300e3b2c5",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "spends"
+                  }
+                },
+                "Property": "spends"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}
